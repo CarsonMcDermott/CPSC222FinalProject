@@ -12,10 +12,10 @@ streams_df1 = pd.read_csv("StreamingHistory.csv")   # loaded in Jaylene's data
 ## use the classifier from last DA to change these dates to numeric?
         # pretty sure already wrote code similar to this
 streams_df1[ "WK" ] = pd.to_datetime(streams_df1["endTime"]).dt.isocalendar().week     #  reference: https://techtrekking.com/how-to-convert-daily-time-series-data-into-weekly-and-monthly-using-pandas-and-python/
-print("***", streams_df1, "***")              # test
+# print("***", streams_df1, "***")              # test
 streams_df1["endTime"] = streams_df1["WK"]
 streams_df1.drop(["WK"], axis=1)
-print(streams_df1)              # test
+# print(streams_df1)              # test
 streams_df1.to_csv("YAY_Jaylene.csv", index= False)
 streams_df1.drop("WK", inplace=True, axis=1)
 streams_df1.to_csv("YAY_Jaylene.csv", index= False)
@@ -68,10 +68,32 @@ for i in streams_df1["artistName"]:
 total_percent_of_pop = count/len(streams_df1["artistName"]) * 100
 print(total_percent_of_pop)             # will print jaylene total = 23.59%
 
-count2 = 0
 ## percent of pop by week
+# grouping by week:
+by_week = streams_df1.groupby("endTime")
+# print(by_week.groups.keys())
+# print(len(by_week.groups.keys()))               # there are 32 weeks in total
 
+for group_name, group_df, in by_week:           # will print all the different tables made by the groupby (for J's data = 32 tables)
+    print(group_name)
+    print(group_df)
+    # print()
+	# 2. test to see how many of the pop aritist are in each table
+	
+for i in group_df["artistName"]:
+	if i in pop_artists_jaylene:
+		count += 1
+	by_week_percent_of_pop = count/len(streams_df1["artistName"]) * 100
+	print("week num is:", group_name, "and percent is:", by_week_percent_of_pop)             # will print jaylene total = 23.59%
+	# print(pd.unique(by_week_percent_of_pop))
+		# print(by_week_percent_of_pop)
 
-
+#     week_pop = group_df[i].mean()   # will give you a series representing all values in the population column. it is also part of the for loop so it will give all the means 
+#     print(group_mean_pop)
+# # 3. Combine the mean_pops into a pandas Series... before the for loop, do mean_pop_ser
+#     mean_pop_ser[group_name] = group_mean_pop
+#     print()
+# mean_pop_ser.name = "Mean Population"  # give your mean_pop_ser a name
+# print(mean_pop_ser)
 
 
