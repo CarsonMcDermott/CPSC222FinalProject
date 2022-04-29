@@ -82,8 +82,8 @@ for group_name, group_df, in by_week:           # test, will print all the diffe
 	print(group_df)
 	# print()
 	# 2. test to see how many of the pop aritist are in each table
-	count = [i for i in group_df["artistName"] if i in pop_artists_jaylene]
+	count = [i for i in group_df["artistName"] if i in pop_artists_jaylene]		# list comprehension
 	# print("***", len(count))	# test
 	percent_by_week = len(count)/len(group_df["artistName"]) * 100
 	print("****", percent_by_week)
-
+	
