@@ -18,7 +18,10 @@ streams_df1.drop(["WK"], axis=1)
 # print(streams_df1)              # test
 streams_df1.to_csv("YAY_Jaylene.csv", index= False)
 streams_df1.drop("WK", inplace=True, axis=1)
-streams_df1.to_csv("YAY_Jaylene.csv", index= False)
+sorted_streams = streams_df1.sort_values(by='endTime', ascending=True)
+print("***", sorted_streams)
+# streams_df1.sort("endTime")	# test
+sorted_streams.to_csv("YAY_Jaylene.csv", index= False)
 ## CODE REFERENCE
 ## link: https://www.geeksforgeeks.org/extract-week-number-from-date-in-pandas-python/
 ## another link: https://www.geeksforgeeks.org/convert-json-to-csv-in-python/
@@ -74,19 +77,23 @@ by_week = streams_df1.groupby("endTime")
 # print(by_week.groups.keys())
 # print(len(by_week.groups.keys()))               # there are 32 weeks in total
 
-for group_name, group_df, in by_week:           # will print all the different tables made by the groupby (for J's data = 32 tables)
-    print(group_name)
-    print(group_df)
+# for group_name, group_df, in by_week:           # test, will print all the different tables made by the groupby (for J's data = 32 tables)
+#     print(group_name)	
+#     print(group_df)
     # print()
 	# 2. test to see how many of the pop aritist are in each table
-	
-for i in group_df["artistName"]:
-	if i in pop_artists_jaylene:
-		count += 1
-	by_week_percent_of_pop = count/len(streams_df1["artistName"]) * 100
-	print("week num is:", group_name, "and percent is:", by_week_percent_of_pop)             # will print jaylene total = 23.59%
+for group_name, group in by_week:
+	print(group_name)
+
+
+## ORIGNINAL VERSION OF THIS CODE, WILL PRINT THE WRONG WEEK NUMBERS AND ALSO SOMETIMES SCREWS UP THE PERCENTAGES
+# for i in group_df["artistName"]:
+# 	if i in pop_artists_jaylene:
+# 		count += 1
+# 	by_week_percent_of_pop = count/len(streams_df1["artistName"]) * 100
+# 	print("week num is:", group_name, "and percent is:", by_week_percent_of_pop)           
 	# print(pd.unique(by_week_percent_of_pop))
-		# print(by_week_percent_of_pop)
+	# print(by_week_percent_of_pop)
 
 #     week_pop = group_df[i].mean()   # will give you a series representing all values in the population column. it is also part of the for loop so it will give all the means 
 #     print(group_mean_pop)
