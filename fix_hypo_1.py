@@ -2,6 +2,19 @@
 ## CPSC 222
 
 
+## GINA NOTES FROM CHECK IN
+	# Check in notes (Delete Later!!)
+	# create the percentage of pop per day from data
+	# then take the number of that into a data set... 
+	# and set is it equal to 1/7 (because there are 7 different genres)
+
+	# assume you listen to the same amount of music per day... alternative testing is what is you DONT listen to the same
+
+	# create bar charts that show the amount of time that we listen to music (each)
+	# then see who listens to more music per day
+	# do a group by genre to listen to who listens to more pop
+
+
 import pandas as pd
 import numpy as np
 import statistics
