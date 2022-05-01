@@ -4,6 +4,7 @@
 
 import pandas as pd
 import numpy as np
+import statistics
 
 ## read in the data file
 streams_df1 = pd.read_csv("StreamingHistory.csv")   # loaded in Jaylene's data
@@ -78,12 +79,25 @@ by_week = streams_df1.groupby("endTime")
 # print(len(by_week.groups.keys()))               # there are 32 weeks in total
 
 for group_name, group_df, in by_week:           # test, will print all the different tables made by the groupby (for J's data = 32 tables)
-	print(group_name)	
-	print(group_df)
+	group_name = group_name		# this code/assigning variables looks wonky but if want the individual graphs and their names, can print them
+	group_df = group_df			# print this variable if you want the subtables
 	# print()
 	# 2. test to see how many of the pop aritist are in each table
 	count = [i for i in group_df["artistName"] if i in pop_artists_jaylene]		# list comprehension
 	# print("***", len(count))	# test
 	percent_by_week = len(count)/len(group_df["artistName"]) * 100
-	print("****", percent_by_week)
-	
+	# print(group_name, percent_by_week)
+
+
+## percentage of pop listened to per week by jaylene (rounded to three decimals): 
+pop_percent_by_week = [12.477, 8.897, 19.551, 26.975, 42.222, 48.936, 45.3125, 51.672, 32.390, 35.227, 35.000, 30.285, 
+					34.117, 27.714, 31.218, 31.718, 41.954, 38.071, 29.411, 28.715, 29.191, 23.828, 25.321, 16.576, 
+					18.006, 18.945, 15.099, 15.642, 9.549, 13.243, 10.337, 9.369]
+print(statistics.mean(pop_percent_by_week))		# mean = 26.780265625
+
+
+# HYPOTHESIS TESTING:
+
+# Note: according to: https://www.statology.org/left-tailed-test-vs-right-tailed-test/
+	# Left-tailed test: The alternative hypothesis contains the “<” sign
+	# Right-tailed test: The alternative hypothesis contains the “>” sign
