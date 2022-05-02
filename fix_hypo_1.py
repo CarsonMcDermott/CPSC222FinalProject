@@ -114,3 +114,7 @@ print(statistics.mean(pop_percent_by_week))		# mean = 26.780265625
 # Note: according to: https://www.statology.org/left-tailed-test-vs-right-tailed-test/
 	# Left-tailed test: The alternative hypothesis contains the “<” sign
 	# Right-tailed test: The alternative hypothesis contains the “>” sign
+
+
+	# per week totals of milliseconds listened to
+	# h1: mJ>mc, jaylene does listen to more music than carson
