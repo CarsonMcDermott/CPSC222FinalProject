@@ -116,5 +116,6 @@ print(statistics.mean(pop_percent_by_week))		# mean = 26.780265625
 	# Right-tailed test: The alternative hypothesis contains the “>” sign
 
 
-	# per week totals of milliseconds listened to
+	# take data: per week totals of milliseconds listened to by each person (this will be a two sample independent test)
 	# h1: mJ>mc, jaylene does listen to more music than carson
+	# h0: mJ <= mc, jaylene listens to less or equal to carson music per week
