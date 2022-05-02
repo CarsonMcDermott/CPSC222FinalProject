@@ -1,5 +1,5 @@
 ### CPSC222 
-### FinalProject
+### Final Project
 ### Jaylene Baltazar, Carson McDermott
 ### May 2022
 
@@ -10,5 +10,6 @@ Data cleaning was perfromed to organize the days into weeks and a .groupby was o
 
 Both Carson and I have bar and pie charts to visualize our top artists by number of streams and also by most popular genre, respectively.
 
-We are testing two hypotheses, the first using each of our own data, then the second being our data combined.
-* The hypotheses are as the following:
+For hypothesis tests, we started by looking at our individual data, then both of them combined. 
+
+Our kNN classifier takes in the length of a song (in milliseconds) from our data and predict the artist it's mostlikely to belong to and also the genre that goes along with it. 
