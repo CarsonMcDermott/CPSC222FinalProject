@@ -2,7 +2,20 @@
 from scipy import stats
 import numpy as np
 # let's check our work with scipy
-num_of_genre = np.array([4, 3, 1, 1, 5, 1])        # PUT THE DATA HERE
+
+# Jaylene stats: 
+# [4, 3, 1, 3, 1, 1, 2]
+# ["pop", "alternative", "electro pop", "dance pop", "country", "indie", "rap pop"]
+
+# Carson stats:
+# [4, 3, 1, 1, 5, 1]
+# ["4rap", "3hiphop", "1alternative", "1rock", "5pop", "1alternative pop rock"]
+
+# Merged Data Stats:
+# ["pop", "alternative", "electro pop", "dance pop", "country" "indie", "rap pop", "rap", "hip hop", "rock" "alternative pop rock"]
+# [9, 4, 1, 3, 1, 1, 2, 4, 3, 1, 1]
+
+num_of_genre = np.array([9, 4, 1, 3, 1, 1, 2, 4, 3, 1, 1])
 len_num_of_genre = len(num_of_genre)
 std = np.std(num_of_genre, ddof=1)
 mean = np.mean(num_of_genre)
