@@ -17,6 +17,8 @@ for lengths in song_arr:
     length_total += lengths
 avg_listen_time_ms = length_total / song_count
 avg_listen_time_minutes = avg_listen_time_ms / 60000 #since there are 60,000 milliseconds in a minute!
+msplayed_std = song_arr.mean()
+print("msPlayed STD:", msplayed_std)
 # print("Average Listen Time Per Song (in minutes):", avg_listen_time_minutes)
 
 # Longest Song
